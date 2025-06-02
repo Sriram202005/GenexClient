@@ -2,24 +2,24 @@ import { ArrowRight } from 'lucide-react';
 import Button from '../components/ui/Button';
 import { Link } from 'react-router-dom';
 import { Card, CardBody } from '../components/ui/Card';
+import modelImage from '../assets/i1.jpeg';
 
 const Home = () => {
   return (
     <div>
       {/* Hero Section */}
       <section className="relative h-screen flex items-center justify-center">
-        <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage:
-              'url(https://images.pexels.com/photos/3184292/pexels-photo-3184292.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=2)',
-          }}
-        >
+ <div
+  className="absolute inset-0 bg-cover bg-center"
+  style={{
+    backgroundImage: `url(${modelImage})`,
+  }}
+>
           <div className="absolute inset-0 bg-gradient-to-r from-black/70 to-black/40"></div>
         </div>
 
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in ">
             Transforming Analytics.
             <br />
             Empowering Talent.

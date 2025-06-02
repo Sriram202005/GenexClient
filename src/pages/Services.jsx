@@ -321,6 +321,8 @@ import { useSearchParams, Link } from 'react-router-dom';
 import { ArrowRight, Monitor, BarChart, Users } from 'lucide-react';
 import { Card, CardBody } from '../components/ui/Card';
 import Button from '../components/ui/Button';
+import { FunctionalConsulting, TechnicalConsulting } from '../components/Consulting';
+
 
 const services = [
   {
@@ -600,6 +602,12 @@ const Services = () => {
           </Button>
         </div>
       </section>
+
+      <div className="relative z-0 mt-20">
+        <TechnicalConsulting />
+        <FunctionalConsulting />
+      </div>
+
     </div>
   );
 };

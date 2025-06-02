@@ -1,16 +1,19 @@
-import { useState, useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown, BarChart } from 'lucide-react';
 import MobileMenu from './MobileMenu';
+import logo from '../../assets/logo.jpeg';
+
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [homeDropdownOpen, setHomeDropdownOpen] = useState(false);
   const [servicesDropdownOpen, setServicesDropdownOpen] = useState(false);
   const [trainingsDropdownOpen, setTrainingsDropdownOpen] = useState(false);
   const location = useLocation();
 
-  // Timeout refs to delay dropdown closing
+  const homeTimeoutRef = useRef(null);
   const servicesTimeoutRef = useRef(null);
   const trainingsTimeoutRef = useRef(null);
 
@@ -24,13 +27,14 @@ const Navbar = () => {
 
   useEffect(() => {
     setIsMenuOpen(false);
+    setHomeDropdownOpen(false);
     setServicesDropdownOpen(false);
     setTrainingsDropdownOpen(false);
   }, [location]);
 
-  // Cleanup timeout on unmount
   useEffect(() => {
     return () => {
+      clearTimeout(homeTimeoutRef.current);
       clearTimeout(servicesTimeoutRef.current);
       clearTimeout(trainingsTimeoutRef.current);
     };
@@ -47,20 +51,56 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <NavLink to="/" className="flex items-center space-x-2">
-            <BarChart className="h-8 w-8" />
-            <span className="font-bold text-xl">GenexCorp</span>
-          </NavLink>
+  <img src={logo} alt="GenexCorp Logo" className="h-18 w-18 object-contain" />
+</NavLink>
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
-            <NavLink
-              to="/"
-              className={({ isActive }) =>
-                `transition hover:text-blue-500 ${isActive ? 'text-blue-500 font-medium' : ''}`
-              }
+            {/* Home Dropdown */}
+            <div
+              className="relative"
+              onMouseEnter={() => {
+                clearTimeout(homeTimeoutRef.current);
+                setHomeDropdownOpen(true);
+              }}
+              onMouseLeave={() => {
+                homeTimeoutRef.current = setTimeout(() => {
+                  setHomeDropdownOpen(false);
+                }, 300);
+              }}
             >
-              Home
-            </NavLink>
+              <NavLink
+                to="/"
+                className={`flex items-center space-x-1 ${
+                  location.pathname === '/' ? 'text-blue-500 font-medium' : ''
+                } hover:text-blue-500 transition`}
+              >
+                <span>Home</span>
+                <ChevronDown className="h-4 w-4" />
+              </NavLink>
+              <div
+                className={`absolute left-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 transition-all duration-200 ${
+                  homeDropdownOpen
+                    ? 'opacity-100 translate-y-0 pointer-events-auto'
+                    : 'opacity-0 -translate-y-2 pointer-events-none'
+                }`}
+              >
+                <div className="py-1">
+                  <NavLink
+                    to="/portfolio"
+                    className="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600"
+                  >
+                    Portfolio
+                  </NavLink>
+                  <NavLink
+                    to="/objective"
+                    className="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600"
+                  >
+                    Objective
+                  </NavLink>
+                </div>
+              </div>
+            </div>
 
             {/* Services Dropdown */}
             <div
@@ -72,7 +112,7 @@ const Navbar = () => {
               onMouseLeave={() => {
                 servicesTimeoutRef.current = setTimeout(() => {
                   setServicesDropdownOpen(false);
-                }, 300); // Delay close by 300ms
+                }, 300);
               }}
             >
               <button
@@ -96,7 +136,7 @@ const Navbar = () => {
                     className="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600"
                   >
                     Product Development
-                  </NavLink>  
+                  </NavLink>
                   <NavLink
                     to="/services?type=it-consulting"
                     className="block px-4 py-2 text-gray-800 hover:bg-blue-50 hover:text-blue-600"
@@ -123,7 +163,7 @@ const Navbar = () => {
               onMouseLeave={() => {
                 trainingsTimeoutRef.current = setTimeout(() => {
                   setTrainingsDropdownOpen(false);
-                }, 300); // Delay close by 300ms
+                }, 300);
               }}
             >
               <button

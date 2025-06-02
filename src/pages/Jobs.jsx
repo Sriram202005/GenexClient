@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FunctionalConsulting, TechnicalConsulting } from '../components/Consulting';
 
 const jobListings = [
   {
@@ -132,6 +133,10 @@ export default function CareersPage() {
             No jobs found for "{searchTerm}"
           </p>
         )}
+      </div>
+      <div className="relative z-0 mt-20">
+        <TechnicalConsulting />
+        <FunctionalConsulting />
       </div>
     </div>
   );

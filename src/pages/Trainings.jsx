@@ -4,6 +4,7 @@ import Tabs from '../components/ui/Tabs';
 import Button from '../components/ui/Button';
 import { Card, CardBody, CardFooter } from '../components/ui/Card';
 import { ArrowRight, Users, GraduationCap, Building, Calendar, Clock } from 'lucide-react';
+import { FunctionalConsulting, TechnicalConsulting } from '../components/Consulting';
 
 
 const trainingTypes = [
@@ -665,6 +666,10 @@ const Trainings = () => {
           </div>
         </div>
       </section>
+      <div className="relative z-0 mt-20">
+        <TechnicalConsulting />
+        <FunctionalConsulting />
+      </div>
     </div>
   );
 };
