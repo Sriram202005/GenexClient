@@ -111,19 +111,19 @@ const MobileMenu = ({ isOpen }) => {
             }`}
           >
             <NavLink
-              to="/trainings?type=internships"
+              to="/trainings/training"
               className="block py-2 pl-4 text-gray-700 hover:text-blue-500"
             >
               Trainings/Internships
             </NavLink>
             <NavLink
-              to="/trainings?type=real-time"
+              to="/trainings/real-time-internship"
               className="block py-2 pl-4 text-gray-700 hover:text-blue-500"
-            >
+            >s
               Real-Time Internship
             </NavLink>
             <NavLink
-              to="/trainings?type=corporate"
+              to="/corporate-training"
               className="block py-2 pl-4 text-gray-700 hover:text-blue-500"
             >
               Corporate Training

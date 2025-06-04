@@ -466,13 +466,8 @@ const Navbar = () => {
 
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
 
+  // Helper to add active styles
   const getLinkClass = (path) => {
-    // If location.pathname equals path or for query params, check startsWith
-    if (path.includes('?')) {
-      return location.pathname + location.search === path
-        ? 'text-[#800000] font-medium'
-        : 'text-black';
-    }
     return location.pathname === path ? 'text-[#800000] font-medium' : 'text-black';
   };
 
@@ -565,19 +560,19 @@ const Navbar = () => {
               >
                 <div className="py-1">
                   <NavLink
-                    to="/trainings?type=internships"
+                    to="/trainings"
                     className="block px-4 py-2 text-gray-800 hover:bg-[#F2E6E6] hover:text-[#800000]"
                   >
                     Trainings/Internships
                   </NavLink>
                   <NavLink
-                    to="/trainings?type=real-time"
+                    to="/real-time-internship"
                     className="block px-4 py-2 text-gray-800 hover:bg-[#F2E6E6] hover:text-[#800000]"
                   >
                     Real-Time Internship
                   </NavLink>
                   <NavLink
-                    to="/trainings?type=corporate"
+                    to="/corporate-training"
                     className="block px-4 py-2 text-gray-800 hover:bg-[#F2E6E6] hover:text-[#800000]"
                   >
                     Corporate Training
