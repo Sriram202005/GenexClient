@@ -27,36 +27,36 @@ function Objective() {
         <h1 className="text-4xl font-semibold text-center text-gray-800">
           Our Objectives
         </h1>
-        <blockquote className="border-l-4 border-blue-500 pl-4 text-lg italic text-gray-700 bg-blue-50 p-4 mt-10 rounded-md shadow-sm">
+        <blockquote className="border-l-4 border-[#800000] pl-4 text-lg italic text-gray-700 bg-[#f4e1c1] p-4 mt-10 rounded-md shadow-sm">
           At GenexCorp, “Converting non-possibilities to possibilities” is more than a slogan - it reflects our approach to every engagement.
         </blockquote>
       </div>
 
       <div className="max-w-5xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-6 my-12">
         <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-          <Users size={32} className="text-blue-500 mb-2" />
-          <div className="text-3xl font-bold text-blue-600">
+          <Users size={32} className="text-[#800000] mb-2" />
+          <div className="text-3xl font-bold text-[#800000]">
             <AnimatedNumber value={250} />
           </div>
           <div className="text-gray-700 mt-1">Clients</div>
         </div>
         <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-          <TrendingUp size={32} className="text-blue-500 mb-2" />
-          <div className="text-3xl font-bold text-blue-600">
+          <TrendingUp size={32} className="text-[#800000] mb-2" />
+          <div className="text-3xl font-bold text-[#800000]">
             <AnimatedNumber value={120} />
           </div>
           <div className="text-gray-700 mt-1">Projects</div>
         </div>
         <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-          <Award size={32} className="text-blue-500 mb-2" />
-          <div className="text-3xl font-bold text-blue-600">
+          <Award size={32} className="text-[#800000] mb-2" />
+          <div className="text-3xl font-bold text-[#800000]">
             <AnimatedNumber value={15} />
           </div>
           <div className="text-gray-700 mt-1">Awards</div>
         </div>
         <div className="bg-white rounded-xl shadow-lg p-6 flex flex-col items-center">
-          <Globe size={32} className="text-blue-500 mb-2" />
-          <div className="text-3xl font-bold text-blue-600">
+          <Globe size={32} className="text-[#800000] mb-2" />
+          <div className="text-3xl font-bold text-[#800000]">
             <AnimatedNumber value={10} />
           </div>
           <div className="text-gray-700 mt-1">Countries</div>
@@ -64,13 +64,13 @@ function Objective() {
       </div>
 
       <div className="max-w-4xl mx-auto my-16">
-        <h2 className="text-2xl font-bold text-center text-blue-600 mb-8">
+        <h2 className="text-2xl font-bold text-center text-[#800000] mb-8">
           Our Journey
         </h2>
-        <ol className="relative border-l-4 border-blue-100">
+        <ol className="relative border-l-4 border-[#f4e1c1]">
           <li className="mb-10 ml-6">
-            <div className="absolute w-4 h-4 bg-blue-500 rounded-full -left-2 border-4 border-white"></div>
-            <h3 className="text-lg font-semibold text-blue-600">
+            <div className="absolute w-4 h-4 bg-[#800000] rounded-full -left-2 border-4 border-white"></div>
+            <h3 className="text-lg font-semibold text-[#800000]">
               Founded with a Vision
             </h3>
             <p className="text-gray-700">
@@ -100,19 +100,19 @@ function Objective() {
 
       <div className="max-w-305 mx-auto grid grid-cols-1 md:grid-cols-3 gap-5 my-16">
         <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col justify-center">
-          <h3 className="text-xl font-bold text-blue-600 mb-4">Our Belief</h3>
+          <h3 className="text-xl font-bold text-[#800000] mb-4">Our Belief</h3>
           <p className="text-gray-700">
             We believe in the power of PEOPLE and the HUMAN TOUCH, bringing out the best in talent and technology. Our vision is to build technology experts focused on helping clients succeed.
           </p>
         </div>
         <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col justify-center">
-          <h3 className="text-xl font-bold text-blue-600 mb-4">Our Objectives</h3>
+          <h3 className="text-xl font-bold text-[#800000] mb-4">Our Objectives</h3>
           <p className="text-gray-700">
             We put humans first, uniting diverse perspectives to create technology solutions that empower clients and simplify business. Our collaborative approach ensures your success through meaningful analytics and strategy.
           </p>
         </div>
         <div className="bg-white rounded-2xl shadow-xl p-8 flex flex-col justify-center">
-          <h3 className="text-xl font-bold text-blue-600 mb-4">Specializations</h3>
+          <h3 className="text-xl font-bold text-[#800000] mb-4">Specializations</h3>
           <ul className="list-disc ml-6 text-gray-700">
             <li>E-commerce</li>
             <li>Mobility and Smart Technology</li>

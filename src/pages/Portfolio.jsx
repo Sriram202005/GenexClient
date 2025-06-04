@@ -13,19 +13,19 @@ function Portfolio() {
       </div>
 
       <div className="max-w-7xl mx-auto p-8 mt-8">
-        <blockquote className="border-l-4 border-blue-600 pl-4 text-lg italic text-blue-700 bg-blue-50 p-4 mb-8 rounded-md shadow-sm">
+        <blockquote className="border-l-4 border-[#800000] pl-4 text-lg italic text-[#660000] bg-[#f4e1c1] p-4 mb-8 rounded-md shadow-sm">
           For GenexCorp, “Welcome to possible of non-possibilities” is more than
           a slogan - it reflects our approach to every engagement
         </blockquote>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-t-4 border-blue-400 flex flex-col items-center">
+          <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-t-4 border-[#800000] flex flex-col items-center">
             <img
               src={designer}
               alt="Team"
               className="w-16 h-16 mb-4 rounded-full shadow"
             />
-            <h3 className="text-xl font-bold text-blue-600 mb-2">Diverse Team</h3>
+            <h3 className="text-xl font-bold text-[#800000] mb-2">Diverse Team</h3>
             <p className="text-gray-700 text-center">
               Our team includes technical, functional, and business analyst
               specialists, BPM creators, KPI designers, developers, UI designers,
@@ -33,13 +33,13 @@ function Portfolio() {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-t-4 border-yellow-400 flex flex-col items-center">
+          <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-t-4 border-[#c2a878] flex flex-col items-center">
             <img
               src={cloud}
               alt="Consultative Approach"
               className="w-16 h-16 mb-4 rounded-full shadow"
             />
-            <h3 className="text-xl font-bold text-yellow-600 mb-2">
+            <h3 className="text-xl font-bold text-[#c2a878] mb-2">
               Consultative Approach
             </h3>
             <p className="text-gray-700 text-center">
@@ -49,13 +49,13 @@ function Portfolio() {
             </p>
           </div>
 
-          <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-t-4 border-green-400 flex flex-col items-center">
+          <div className="bg-white rounded-2xl shadow-md p-6 hover:shadow-xl transition-shadow duration-300 border-t-4 border-[#8a5c37] flex flex-col items-center">
             <img
               src={devops}
               alt="Collaboration"
               className="w-16 h-16 mb-4 rounded-full shadow"
             />
-            <h3 className="text-xl font-bold text-green-600 mb-2">Collaboration</h3>
+            <h3 className="text-xl font-bold text-[#8a5c37] mb-2">Collaboration</h3>
             <p className="text-gray-700 text-center">
               We work with your internal teams, external suppliers, and IT
               providers. Our consultants have a proven track record of building

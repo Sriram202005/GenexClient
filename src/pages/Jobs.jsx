@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { FaReact, FaAws, FaTools } from 'react-icons/fa';
 import { FunctionalConsulting, TechnicalConsulting } from '../components/Consulting';
 
 const jobListings = [
@@ -7,6 +8,7 @@ const jobListings = [
     id: 1,
     title: 'Full Stack Developer',
     startDate: 'Immediate',
+    icon: <FaReact className="text-blue-500 w-6 h-6 mr-2" />,
     description:
       'Looking for a 2-3 year experience Full Stack Developer, experienced with developing Payments, Messaging, Notification and good performance feature apps',
     details: `Responsibilities:
@@ -26,6 +28,7 @@ Qualifications:
     id: 2,
     title: 'AWS Cloud Engineer',
     startDate: 'Immediate',
+    icon: <FaAws className="text-orange-500 w-6 h-6 mr-2" />,
     description:
       'Looking for a 2-3 year experience Cloud Engineer experienced with AWS Cloud Operations',
     details: `Responsibilities:
@@ -43,6 +46,7 @@ Qualifications:
     id: 3,
     title: 'DevOps Engineer',
     startDate: 'Immediate',
+    icon: <FaTools className="text-green-600 w-6 h-6 mr-2" />,
     description: 'Looking for a 2-3 year experience DevOps Engineer',
     details: `Responsibilities:
 - Build and maintain CI/CD pipelines
@@ -57,16 +61,52 @@ Qualifications:
   },
 ];
 
+// Modal Component
+function Modal({ isOpen, onClose, children }) {
+  if (!isOpen) return null;
+
+  return (
+    <>
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 bg-black bg-opacity-50 z-40"
+        onClick={onClose}
+      />
+      {/* Modal */}
+      <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
+        <div
+          className="bg-white rounded-lg shadow-lg max-w-3xl w-full max-h-[90vh] overflow-y-auto p-6 relative"
+          onClick={(e) => e.stopPropagation()} // Prevent closing modal when clicking inside
+        >
+          {/* Close Button */}
+          <button
+            onClick={onClose}
+            className="absolute top-4 right-4 text-gray-600 hover:text-gray-900 text-2xl font-bold"
+            aria-label="Close modal"
+          >
+            &times;
+          </button>
+          {children}
+        </div>
+      </div>
+    </>
+  );
+}
+
 export default function CareersPage() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [expandedJobId, setExpandedJobId] = useState(null);
+  const [modalJob, setModalJob] = useState(null);
 
   const filteredJobs = jobListings.filter((job) =>
     job.title.toLowerCase().includes(searchTerm.toLowerCase())
   );
 
-  const toggleDetails = (id) => {
-    setExpandedJobId(expandedJobId === id ? null : id);
+  const openModal = (job) => {
+    setModalJob(job);
+  };
+
+  const closeModal = () => {
+    setModalJob(null);
   };
 
   return (
@@ -98,7 +138,10 @@ export default function CareersPage() {
               key={job.id}
               className="border p-6 rounded-xl shadow hover:shadow-lg transition"
             >
-              <h2 className="text-xl font-semibold">{job.title}</h2>
+              <h2 className="text-xl font-semibold flex items-center">
+                {job.icon}
+                {job.title}
+              </h2>
               <p className="text-sm text-gray-600 mb-2">
                 Start Date: {job.startDate}
               </p>
@@ -106,26 +149,19 @@ export default function CareersPage() {
 
               <div className="flex gap-4 mb-4">
                 <button
-                  onClick={() => toggleDetails(job.id)}
-                  className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg"
+                  onClick={() => openModal(job)}
+                  className="bg-gray-200 hover:bg-gray-300 text-gray-800 px-4 py-2 rounded-lg transition"
                 >
-                  {expandedJobId === job.id ? 'Hide Details' : 'View Details'}
+                  View Details
                 </button>
 
                 <Link
                   to="/apply"
-                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-center inline-block"
+                  className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-lg text-center inline-block transition"
                 >
                   Apply Now
                 </Link>
               </div>
-
-              {/* Expanded Details Section */}
-              {expandedJobId === job.id && (
-                <div className="bg-gray-50 p-4 rounded-lg border border-gray-200 whitespace-pre-wrap text-gray-700">
-                  {job.details}
-                </div>
-              )}
             </div>
           ))
         ) : (
@@ -134,6 +170,26 @@ export default function CareersPage() {
           </p>
         )}
       </div>
+
+      {/* Modal for Job Details */}
+      <Modal isOpen={!!modalJob} onClose={closeModal}>
+        {modalJob && (
+          <>
+            <h2 className="text-2xl font-bold mb-4 flex items-center">
+              {modalJob.icon}
+              {modalJob.title}
+            </h2>
+            <p className="mb-4 whitespace-pre-wrap text-gray-800">{modalJob.details}</p>
+            <Link
+              to="/apply"
+              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg text-center inline-block transition"
+            >
+              Apply Now
+            </Link>
+          </>
+        )}
+      </Modal>
+
       <div className="relative z-0 mt-20">
         <TechnicalConsulting />
         <FunctionalConsulting />
@@ -141,6 +197,8 @@ export default function CareersPage() {
     </div>
   );
 }
+
+
 
 
 
