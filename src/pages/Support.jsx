@@ -30,7 +30,7 @@ const Support = () => {
   return (
     <div className="pt-16">
       {/* Contact Section */}
-      <section className="py-20 bg-gray-100">
+      <section className="py-20 ">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-12">
             {/* Contact Form */}

@@ -1,54 +1,70 @@
+import React from "react";
 
-import React from 'react';
-import j3 from "../assets/ecom.avif";
-import j7 from "../assets/manu.jpg";
-import j1 from "../assets/retail.jpg";
-import j2 from "../assets/insurance.jpg";
-import j6 from "../assets/logistics.jpg";
-import j12 from "../assets/banks.jpeg";
+import j1  from "../assets/ecom1.jpg";
+import j7  from "../assets/manu1.png";
+import j3  from "../assets/retail1.jpg";
+import j2  from "../assets/insurance1.jpg";
+import j6  from "../assets/banking1.png";
+import j12 from "../assets/logistics1.jpg";
 
-import j5 from "../assets/qlik.png";
-import j9 from "../assets/tableau.png";
-import j8 from "../assets/hive.png";
-import j10 from "../assets/cloudera.webp";
-import j4 from "../assets/informatic.png";
-import j11 from "../assets/sap.png";
+import j5  from "../assets/qlik.png";
+import j9  from "../assets/tableau.png";
+import j8  from "../assets/hive.png";
+import j10 from "../assets/cloudera1.png";
+import j4  from "../assets/informatica1.png";
+import j11 from "../assets/sap1.png";
 
+/* ------------------------------------------------------------------ */
+/*                           TECHNICAL GRID                           */
+/* ------------------------------------------------------------------ */
 export const TechnicalConsulting = () => {
   const images = [j5, j9, j8, j10, j4, j11];
 
   return (
-    <section className="mt-20">
-      <h2 className="text-3xl font-bold mb-6">Technology Consulting Arena</h2>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
-        {images.map((img, index) => (
-          <img
-            key={index}
-            src={img}
-            alt={`Tech ${index + 1}`}
-            className="rounded-lg shadow-lg object-contain h-40 w-full transition-transform duration-300 hover:scale-110"
-            style={{ boxShadow: '0 8px 15px rgba(0,0,0,0.2)' }}
-          />
+    <section className="mt-20 flex flex-col items-center justify-center text-center px-4">
+      <h2 className="text-3xl font-bold mb-6 text-red-900">
+        Technology Consulting Arena
+      </h2>
+
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 max-w-6xl w-full">
+        {images.map((img, idx) => (
+          <div
+            key={idx}
+            className="h-40 flex items-center justify-center rounded-lg shadow-lg"
+            style={{ boxShadow: "0 8px 15px rgba(0,0,0,0.2)" }}
+          >
+            <img
+              src={img}
+              alt={`Tech ${idx + 1}`}
+              className="max-h-32 w-auto object-contain transition-transform duration-300 hover:scale-110"
+            />
+          </div>
         ))}
       </div>
     </section>
   );
 };
 
+/* ------------------------------------------------------------------ */
+/*                         FUNCTIONAL MARQUEE                         */
+/* ------------------------------------------------------------------ */
 export const FunctionalConsulting = () => {
   const images = [j3, j7, j1, j2, j6, j12];
 
   return (
-    <section className="mt-20">
-      <h2 className="text-3xl font-bold mb-6 ">Functional Consulting Arena</h2>
-      <div className="overflow-hidden whitespace-nowrap h-48">
+    <section className="mt-20 flex flex-col items-center justify-center text-center px-4">
+      <h2 className="text-3xl font-bold mb-6 text-red-900">
+        Functional Consulting Arena
+      </h2>
+
+      <div className="overflow-hidden whitespace-nowrap h-48 max-w-6xl w-full">
         <div className="inline-block animate-scroll-left hover:animation-play-state-paused">
-          {[...images, ...images].map((img, index) => (
+          {[...images, ...images].map((img, idx) => (
             <img
-              key={index}
+              key={idx}
               src={img}
-              alt={`Functional ${index + 1}`}
-              className="inline-block rounded-lg shadow-md object-contain h-44 w-auto mr-8 transition-transform duration-300 hover:scale-125"
+              alt={`Functional ${idx + 1}`}
+              className="inline-block max-h-36 w-auto mr-8 rounded-lg shadow-md object-contain transition-transform duration-300 hover:scale-110"
             />
           ))}
         </div>
@@ -56,7 +72,7 @@ export const FunctionalConsulting = () => {
 
       <style>{`
         @keyframes scroll-left {
-          0% { transform: translateX(0); }
+          0%   { transform: translateX(0); }
           100% { transform: translateX(-50%); }
         }
         .animate-scroll-left {

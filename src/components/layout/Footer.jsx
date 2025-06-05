@@ -8,6 +8,7 @@ import {
   Instagram,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import logo from '../../assets/logo.jpg'; // Add your logo image path here
 
 const Footer = () => {
   return (
@@ -16,9 +17,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
           {/* Genexcorp Description */}
           <div>
-            <h3 className="text-xl font-bold mb-4">Genexcorp</h3>
+            <div className="flex items-center space-x-2 mb-4">
+              <img src={logo} alt="Genexcorp Logo" className="h-8 w-8 object-contain" />
+              <h3 className="text-xl font-bold">Genexcorp</h3>
+            </div>
             <p className="text-gray-400 mb-4">
-              Some believe in the power of numbers. Some believe in the power of technology. We believe in the power of people, power of human touch which brings best out of the best and the impact people can have on technology.
+              Some believe in the power of numbers. Some believe in the power of technology.
+              We believe in the power of people, power of human touch which brings best out of the best
+              and the impact people can have on technology.
             </p>
             <div className="flex space-x-4">
               <a href="#" className="text-gray-400 hover:text-white transition-colors">
@@ -66,18 +72,18 @@ const Footer = () => {
             <h3 className="text-xl font-bold mb-4">Contact Us</h3>
             <ul className="space-y-4">
               <li className="flex items-start">
-                <MapPin className="mr-2 h-5 w-5 text-blue-600 flex-shrink-0 mt-0.5" />
+                <MapPin className="mr-2 h-5 w-5 text-red-900 flex-shrink-0 mt-0.5" />
                 <span className="text-gray-400">
                   VT Plaza, 4th Floor, KPHB Colony, Road # 1,<br />
                   Kukatpally, Hyderabad - 500085, Telangana, India
                 </span>
               </li>
               <li className="flex items-center">
-                <Phone className="mr-2 h-5 w-5 text-blue-600" />
+                <Phone className="mr-2 h-5 w-5 text-red-900" />
                 <span className="text-gray-400">+91-9920779995</span>
               </li>
               <li className="flex items-center">
-                <Mail className="mr-2 h-5 w-5 text-blue-600" />
+                <Mail className="mr-2 h-5 w-5 text-red-900" />
                 <span className="text-gray-400">hr@genexcorp.com</span>
               </li>
             </ul>

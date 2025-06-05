@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Layers, Settings, Code2, Globe, Bot, Cloud, Users } from "lucide-react";
 import Button from '@/components/ui/Button';
+import { FunctionalConsulting,TechnicalConsulting } from '../components/Consulting';
 
 const programs = [
   {
@@ -159,6 +160,8 @@ const TrainingsPage = () => {
           </Button>
         </div>
       </section>
+      <TechnicalConsulting/>
+      <FunctionalConsulting/>      
     </div>
   );
 };

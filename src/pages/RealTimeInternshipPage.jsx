@@ -1,4 +1,5 @@
 import Button from '@/components/ui/Button';
+import { FunctionalConsulting,TechnicalConsulting } from '../components/Consulting';
 
 const RealTimeInternshipPage = () => {
   return (
@@ -113,6 +114,8 @@ const RealTimeInternshipPage = () => {
           </Button>
         </div>
       </section>
+      <TechnicalConsulting/>
+      <FunctionalConsulting/>      
     </div>
   );
 };

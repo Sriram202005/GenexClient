@@ -1,64 +1,5 @@
-// import { useState } from 'react';
-
-// const productServices = [
-//   {
-//     id: 1,
-//     title: 'Custom Software Solutions',
-//     shortDesc: 'Tailored software for your unique business needs.',
-//     details: `Details:
-// - Requirement analysis
-// - Agile product development
-// - Continuous integration and delivery`
-//   },
-//   {
-//     id: 2,
-//     title: 'Mobile App Development',
-//     shortDesc: 'iOS and Android apps to boost user engagement.',
-//     details: `Details:
-// - Native & cross-platform development
-// - Performance optimization
-// - UI/UX design best practices`
-//   },
-// ];
-
-// export default function ProductDevelopmentPage() {
-//   const [expandedId, setExpandedId] = useState(null);
-
-//   const toggleDetails = (id) => {
-//     setExpandedId(expandedId === id ? null : id);
-//   };
-
-//   return (
-//     <div className="max-w-4xl mx-auto px-4 py-8 space-y-12">
-//       <div className="text-black p-8 text-center">
-//         <h1 className="text-4xl font-bold mb-4">Product Development</h1>
-//         <p className="text-lg">Empowering your business through innovative, scalable digital solutions.</p>
-//       </div>
-
-//       <div className="space-y-6">
-//         {productServices.map(service => (
-//           <div key={service.id} className="border p-6 rounded-xl shadow hover:shadow-lg transition">
-//             <h2 className="text-xl font-semibold">{service.title}</h2>
-//             <p className="text-gray-700 mb-4">{service.shortDesc}</p>
-//             <button
-//               onClick={() => toggleDetails(service.id)}
-//               className="bg-gray-200 hover:bg-gray-300 px-4 py-2 rounded-lg"
-//             >
-//               {expandedId === service.id ? 'Hide Details' : 'View Details'}
-//             </button>
-//             {expandedId === service.id && (
-//               <div className="bg-gray-50 p-4 rounded-lg border mt-4 text-gray-700 whitespace-pre-wrap">
-//                 {service.details}
-//               </div>
-//             )}
-//           </div>
-//         ))}
-//       </div>
-//     </div>
-//   );
-// }
-
 import React from 'react';
+import { FunctionalConsulting,TechnicalConsulting } from '../components/Consulting';
 
 export default function ProductDevelopmentPage() {
   return (
@@ -132,6 +73,8 @@ export default function ProductDevelopmentPage() {
           </a>
         </div>
       </div>
+      <TechnicalConsulting/>
+      <FunctionalConsulting/>
     </div>
   );
 }

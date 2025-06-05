@@ -1,5 +1,5 @@
 import { useState } from 'react';
-
+import { FunctionalConsulting,TechnicalConsulting } from '../components/Consulting';
 const caseStudies = [
   {
     id: 1,
@@ -109,6 +109,8 @@ export default function ITResourcingPage() {
           </a>
         </div>
       </div>
+                  <TechnicalConsulting/>
+            <FunctionalConsulting/>
     </div>
   );
 }

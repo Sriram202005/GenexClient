@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import Button from "@/components/ui/Button";
+import { FunctionalConsulting,TechnicalConsulting } from '../components/Consulting';
 
 const CorporateTrainingPage = () => {
   const navigate = useNavigate();
@@ -160,6 +161,8 @@ const CorporateTrainingPage = () => {
           </Button>
         </div>
       </section>
+          <TechnicalConsulting/>
+          <FunctionalConsulting/>
     </div>
   );
 };

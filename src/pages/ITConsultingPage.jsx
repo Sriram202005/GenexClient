@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { FunctionalConsulting,TechnicalConsulting } from '../components/Consulting';
 
 const caseStudies = [
   {
@@ -97,6 +98,8 @@ export default function ITConsultingPage() {
           </a>
         </div>
       </div>
+            <TechnicalConsulting/>
+            <FunctionalConsulting/>
     </div>
   );
 }
