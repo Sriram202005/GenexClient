@@ -191,7 +191,7 @@ const Enrollment = () => {
 
         <button
           type="submit"
-          className="w-full py-2 bg-blue-600 text-white font-semibold rounded hover:bg-blue-700 transition"
+          className="w-full py-2 bg-red-900 text-white font-semibold rounded hover:bg-red-700 transition"
         >
           Book
         </button>

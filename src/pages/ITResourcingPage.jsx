@@ -31,7 +31,7 @@ export default function ITResourcingPage() {
   const [expandedId, setExpandedId] = useState(null);
 
   return (
-    <div className="text-black">
+    <div className="text-black mt-16">
       {/* Hero Section */}
       <div className="bg-red-900 text-white text-center py-16 px-4">
         <h1 className="text-4xl font-bold mb-4">IT Resourcing</h1>

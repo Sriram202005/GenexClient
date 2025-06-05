@@ -59,7 +59,7 @@ import JobDetailPage from './pages/JobDetailPage';
 import Support from './pages/Support.jsx';
 import About from './pages/About.jsx';
 import Enrollment from './pages/Enrollment.jsx';
-import JobApplicationForm from "./pages/JobApplicationForm.jsx";
+// import JobApplicationForm from "./pages/JobApplicationForm.jsx";
 import Portfolio from './pages/Portfolio.jsx';
 import Objective from './pages/Objective.jsx';
 
@@ -89,7 +89,7 @@ const AppRoutes = () => {
 
       {/* Jobs */}
 
-      <Route path="/apply" element={<JobApplicationForm />} />
+      {/* <Route path="/apply" element={<JobApplicationForm />} /> */}
 
       {/* Support */}
       <Route path="/support" element={<Support />} />

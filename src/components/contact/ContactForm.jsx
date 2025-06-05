@@ -102,7 +102,7 @@ const ContactForm = () => {
           name="fullName"
           value={formData.fullName}
           onChange={handleChange}
-          className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-4 py-2 border rounded-md bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 ${
             errors.fullName ? 'border-red-500' : 'border-gray-300'
           }`}
         />
@@ -124,7 +124,7 @@ const ContactForm = () => {
           name="email"
           value={formData.email}
           onChange={handleChange}
-          className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-4 py-2 border rounded-md bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 ${
             errors.email ? 'border-red-500' : 'border-gray-300'
           }`}
         />
@@ -146,7 +146,7 @@ const ContactForm = () => {
           name="subject"
           value={formData.subject}
           onChange={handleChange}
-          className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-4 py-2 border rounded-md bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 ${
             errors.subject ? 'border-red-500' : 'border-gray-300'
           }`}
         />
@@ -168,7 +168,7 @@ const ContactForm = () => {
           rows={5}
           value={formData.message}
           onChange={handleChange}
-          className={`w-full px-4 py-2 border rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 ${
+          className={`w-full px-4 py-2 border rounded-md bg-transparent focus:outline-none focus:ring-2 focus:ring-blue-500 ${
             errors.message ? 'border-red-500' : 'border-gray-300'
           }`}
         ></textarea>

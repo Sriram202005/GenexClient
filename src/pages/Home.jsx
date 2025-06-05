@@ -2,13 +2,13 @@ import { ArrowRight } from 'lucide-react';
 import Button from '../components/ui/Button';
 import { Link } from 'react-router-dom';
 import { Card, CardBody } from '../components/ui/Card';
-import modelImage from '../assets/i1.jpeg';
+import modelImage from '../assets/model.webp';
 
 const Home = () => {
   return (
-    <div>
+    <div className='mt-16'>
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center">
+      <section className="relative h-screen flex items-center justify-center ">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -56,7 +56,7 @@ const Home = () => {
       </section>
 
       {/* Overview Section */}
-      <section id="overview" className="py-20 bg-[#fdf6e3]">
+      <section id="overview" className="py-20 ">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -162,10 +162,10 @@ const Home = () => {
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            {/* Service Cards */}
-            {/* You can add cards here */}
-          </div>
+          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+            * Service Cards *
+            * You can add cards here *
+          </div> */}
 
           <div className="text-center mt-12">
             <Link

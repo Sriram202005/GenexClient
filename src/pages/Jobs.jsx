@@ -204,50 +204,155 @@ const jobsData = [
   {
     id: 1,
     title: 'Full Stack Developer',
-    location: 'Remote',
+    location: 'Bangalore / Hyderabad / Remote',
+    area: 'Cloud',
     type: 'Full time',
     experience: '2-3 years',
-    skills: 'Payments, Messaging, Notification Systems',
+    skills: 'MERN Stack, REST APIs, Git, AWS (basic), CI/CD tools',
     jobTitle: 'Full Stack Developer',
     jobNumber: 'GENX-FSD-2025',
-    description: 'Experienced with developing Payments, Messaging, Notification and good performance feature apps.',
-    summary: 'Develop scalable applications focused on performance and real-time communication.',
+    description:
+      "We're looking for a Full Stack Developer with 2–3 years of experience to build scalable web applications and APIs. You’ll work on modern technologies, collaborating with design and backend teams to deliver high-performance applications.",
+    summary:
+      'Develop and maintain full-stack web apps using MERN stack. Build RESTful APIs and integrate third-party services. Ensure responsiveness, performance, and security. Collaborate using Agile methodology and version control tools.',
   },
   {
     id: 2,
     title: 'AWS Cloud Engineer',
-    location: 'Remote',
+    location: 'Bangalore / Chennai / Remote',
+    area: 'Cloud',
     type: 'Full time',
     experience: '2-3 years',
-    skills: 'AWS Cloud Operations',
+    skills: 'AWS Services, Terraform, CI/CD, Python/Bash',
     jobTitle: 'Cloud Engineer',
     jobNumber: 'GENX-AWS-2025',
-    description: 'Experienced with AWS Cloud Operations and infrastructure management.',
-    summary: 'Manage AWS deployments, monitor cloud services, and ensure high availability.',
+    description:
+      'We’re seeking an AWS Cloud Engineer with 2–3 years of hands-on experience in designing, deploying, and managing cloud infrastructure. You will be responsible for ensuring scalability, availability, and security of our cloud systems.',
+    summary:
+      'Manage and monitor AWS cloud infrastructure. Automate deployments using IaC tools. Optimize system performance and cost. Implement security best practices and backup strategies.',
   },
   {
     id: 3,
     title: 'DevOps Engineer',
-    location: 'Remote',
+    location: 'Hyderabad / Pune / Remote',
+    area: 'Consulting',
     type: 'Full time',
     experience: '2-3 years',
-    skills: 'CI/CD, Automation, Infrastructure as Code',
+    skills: 'CI/CD pipelines, Docker, Kubernetes, Linux, Monitoring tools',
     jobTitle: 'DevOps Engineer',
     jobNumber: 'GENX-DEVOPS-2025',
-    description: 'Experienced with CI/CD pipelines and automation tools.',
-    summary: 'Implement and maintain infrastructure automation and DevOps best practices.',
+    description:
+      'We’re hiring a DevOps Engineer with 2–3 years of experience to streamline and automate development operations. You will manage CI/CD pipelines, container platforms, and support deployment and monitoring processes.',
+    summary:
+      'Set up and manage CI/CD pipelines. Implement and manage Docker/Kubernetes environments. Monitor system performance and availability. Ensure smooth deployment and rollback processes.',
   },
 ];
 
 export default function Jobs() {
+  const [locationFilter, setLocationFilter] = useState('');
+  const [areaFilters, setAreaFilters] = useState([]);
+
+  const handleLocationChange = (value) => {
+    setLocationFilter(value.toLowerCase());
+  };
+
+  const handleAreaToggle = (area) => {
+    setAreaFilters((prev) =>
+      prev.includes(area)
+        ? prev.filter((a) => a !== area)
+        : [...prev, area]
+    );
+  };
+
+  const filteredJobs = jobsData.filter((job) => {
+    const matchesLocation = job.location.toLowerCase().includes(locationFilter);
+    const matchesArea =
+      areaFilters.length === 0 || areaFilters.includes(job.area);
+    return matchesLocation && matchesArea;
+  });
+
   return (
-    <div className="flex min-h-screen text-white bg-black">
-      <FiltersSidebar />
-      <div className="flex-1 p-4 space-y-6">
-        {jobsData.map((job) => (
-          <JobCard key={job.id} job={job} />
-        ))}
+    <div className="min-h-screen bg-white text-black">
+      {/* Hero Section */}
+      <section className="bg-red-900 text-white py-20 px-6 text-center mt-16">
+        <h1 className="text-5xl font-bold mb-4">Join GenexCorp</h1>
+        <p className="max-w-2xl mx-auto text-lg">
+          Explore exciting opportunities to shape the future of technology. Apply now and be part of an innovative and dynamic team.
+        </p>
+      </section>
+
+      {/* Main content area */}
+      <div className="flex flex-col md:flex-row p-6 space-y-6 md:space-y-0 md:space-x-6">
+        <FiltersSidebar
+          onLocationChange={handleLocationChange}
+          onAreaToggle={handleAreaToggle}
+          selectedAreas={areaFilters}
+        />
+        <div className="flex-1 space-y-6">
+          {filteredJobs.length > 0 ? (
+            filteredJobs.map((job) => <JobCard key={job.id} job={job} />)
+          ) : (
+            <p className="text-gray-600">No jobs match your filters.</p>
+          )}
+        </div>
       </div>
     </div>
   );
 }
+
+// import React, { useState } from 'react';
+// import FiltersSidebar from '../components/FiltersSidebar';
+// import JobCard from '../components/JobCard';
+
+// const jobsData = [
+//   {
+//     id: 1,
+//     title: 'Full Stack Developer',
+//     location: 'Bangalore / Hyderabad / Remote',
+//     area: 'AI & Data Science',
+//     jobNumber: 'GENX-FSD-2025',
+//     summary: 'Build scalable web applications and APIs.',
+//   },
+//   {
+//     id: 2,
+//     title: 'AWS Cloud Engineer',
+//     location: 'Bangalore / Chennai / Remote',
+//     area: 'Cloud',
+//     jobNumber: 'GENX-AWS-2025',
+//     summary: 'Manage and monitor AWS cloud infrastructure.',
+//   },
+//   {
+//     id: 3,
+//     title: 'DevOps Engineer',
+//     location: 'Hyderabad / Pune / Remote',
+//     area: 'Cloud',
+//     jobNumber: 'GENX-DEVOPS-2025',
+//     summary: 'Streamline and automate CI/CD and deployments.',
+//   },
+// ];
+
+// export default function JobsPage() {
+//   const [filters, setFilters] = useState({ location: '', areaOfInterest: [] });
+
+//   const filteredJobs = jobsData.filter((job) => {
+//     const matchLocation = job.location.toLowerCase().includes(filters.location.toLowerCase());
+//     const matchArea =
+//       filters.areaOfInterest.length === 0 || filters.areaOfInterest.includes(job.area);
+//     return matchLocation && matchArea;
+//   });
+
+//   return (
+//     <div className="flex flex-col md:flex-row min-h-screen bg-gray-50">
+//       <FiltersSidebar filters={filters} setFilters={setFilters} />
+//       <main className="flex-1 p-6">
+//         <h1 className="text-2xl font-bold text-red-900 mb-4">Job Openings</h1>
+//         <div className="space-y-4">
+//           {filteredJobs.map((job) => (
+//             <JobCard key={job.id} job={job} />
+//           ))}
+//           {filteredJobs.length === 0 && <p className="text-gray-600">No jobs match your filters.</p>}
+//         </div>
+//       </main>
+//     </div>
+//   );
+// }

@@ -429,7 +429,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { NavLink, useLocation } from 'react-router-dom';
 import { Menu, X, ChevronDown } from 'lucide-react';
 import MobileMenu from './MobileMenu';
-import logo from '../../assets/logo.jpeg';
+import logo from '../../assets/logo.jpg';
 
 const Navbar = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -480,7 +480,10 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex justify-between items-center h-16">
           <NavLink to="/" className="flex items-center space-x-2">
-            <img src={logo} alt="GenexCorp Logo" className="h-18 w-18 object-contain" />
+            <img src={logo} alt="GenexCorp Logo" className="h-18 w-18 object-contain md:h-18 md:w-18 h-10 w-10" />
+            <span className="text-sm font-semibold text-red-900 whitespace-nowrap md:text-base">
+              GENEX CORPORATE SERVICES PVT. LTD
+            </span>
           </NavLink>
 
           {/* Desktop Navigation */}

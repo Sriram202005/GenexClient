@@ -1,92 +1,152 @@
-import React from 'react';
-import { useParams, Link } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useParams } from 'react-router-dom';
+import JobApplicationForm from '../components/JobApplicationForm'; // Make sure this path is correct
 
 const jobsData = [
   {
     id: 1,
     title: 'Full Stack Developer',
-    location: 'Remote',
+    location: 'Bangalore / Hyderabad / Remote',
     type: 'Full time',
-    experience: '2-3 years',
-    skills: 'Payments, Messaging, Notification Systems',
+    experience: '2–3 years',
+    skills: `MERN Stack: MongoDB, Express.js, React.js, Node.js\nREST APIs, Git, AWS (basic), CI/CD tools`,
     jobTitle: 'Full Stack Developer',
     jobNumber: 'GENX-FSD-2025',
-    description: 'Experienced with developing Payments, Messaging, Notification and good performance feature apps.',
-    summary: 'Develop scalable applications focused on performance and real-time communication.',
+    description: `We're looking for a Full Stack Developer with 2–3 years of experience to build scalable web applications and APIs. You’ll work on modern technologies, collaborating with design and backend teams to deliver high-performance applications.
+
+Responsibilities:
+• Develop and maintain full-stack web apps using MERN stack
+• Build RESTful APIs and integrate third-party services
+• Ensure responsiveness, performance, and security
+• Collaborate using Agile methodology and version control tools
+
+Qualifications:
+• 2–3 years of experience in full-stack development
+• Strong knowledge of JavaScript, React, Node.js
+• Experience with databases (MongoDB) and Git
+• Exposure to AWS/cloud and CI/CD tools is a plus`,
+    summary: `We’re looking for a Full Stack Developer with 2–3 years of experience to build scalable web applications and APIs.`,
   },
   {
     id: 2,
     title: 'AWS Cloud Engineer',
-    location: 'Remote',
+    location: 'Bangalore / Chennai / Remote',
     type: 'Full time',
-    experience: '2-3 years',
-    skills: 'AWS Cloud Operations',
-    jobTitle: 'Cloud Engineer',
+    experience: '2–3 years',
+    skills: `AWS Services (EC2, S3, Lambda, RDS, etc.)\nInfrastructure as Code (Terraform / CloudFormation)\nCI/CD, Scripting (Python/Bash)`,
+    jobTitle: 'AWS Cloud Engineer',
     jobNumber: 'GENX-AWS-2025',
-    description: 'Experienced with AWS Cloud Operations and infrastructure management.',
-    summary: 'Manage AWS deployments, monitor cloud services, and ensure high availability.',
+    description: `We’re seeking an AWS Cloud Engineer with 2–3 years of hands-on experience in designing, deploying, and managing cloud infrastructure. You will be responsible for ensuring scalability, availability, and security of our cloud systems.
+
+Responsibilities:
+• Manage and monitor AWS cloud infrastructure
+• Automate deployments using IaC tools
+• Optimize system performance and cost
+• Implement security best practices and backup strategies
+
+Qualifications:
+• 2–3 years of experience with AWS
+• Experience with scripting and automation
+• Knowledge of CI/CD tools (e.g., Jenkins, GitHub Actions)
+• Certification (AWS Solutions Architect) is a plus`,
+    summary: `We’re seeking an AWS Cloud Engineer with 2–3 years of experience in designing and managing cloud infrastructure.`,
   },
   {
     id: 3,
     title: 'DevOps Engineer',
-    location: 'Remote',
+    location: 'Hyderabad / Pune / Remote',
     type: 'Full time',
-    experience: '2-3 years',
-    skills: 'CI/CD, Automation, Infrastructure as Code',
+    experience: '2–3 years',
+    skills: `CI/CD pipelines, Jenkins, Git\nDocker, Kubernetes, Linux\nMonitoring tools (Grafana, Prometheus), Shell scripting`,
     jobTitle: 'DevOps Engineer',
     jobNumber: 'GENX-DEVOPS-2025',
-    description: 'Experienced with CI/CD pipelines and automation tools.',
-    summary: 'Implement and maintain infrastructure automation and DevOps best practices.',
+    description: `We’re hiring a DevOps Engineer with 2–3 years of experience to streamline and automate development operations. You will manage CI/CD pipelines, container platforms, and support deployment and monitoring processes.
+
+Responsibilities:
+• Set up and manage CI/CD pipelines
+• Implement and manage Docker/Kubernetes environments
+• Monitor system performance and availability
+• Ensure smooth deployment and rollback processes
+
+Qualifications:
+• 2–3 years of DevOps or related experience
+• Proficiency in Docker, Kubernetes, and Linux
+• Familiarity with cloud (AWS/Azure/GCP) and monitoring tools
+• Strong troubleshooting and scripting skills`,
+    summary: `We’re hiring a DevOps Engineer with 2–3 years of experience to streamline and automate development operations.`,
   },
 ];
 
 export default function JobDetailPage() {
-  const { id } = useParams();
-  const job = jobsData.find((job) => job.id === parseInt(id));
+  const { jobId } = useParams();
+  const job = jobsData.find((job) => job.id === parseInt(jobId));
+  const [showForm, setShowForm] = useState(false);
 
   if (!job) {
-    return <div className="p-10 text-white">Job not found.</div>;
+    return <div className="p-10 text-red-700 font-semibold">Job not found.</div>;
   }
 
   return (
-    <div className="bg-white text-black min-h-screen p-10">
-      <div className="max-w-4xl mx-auto">
-        <h1 className="text-3xl font-bold text-red-900 mb-2">{job.title}</h1>
-        <p className="text-sm text-gray-600 mb-4">
-          {job.location} | {job.type} | Experience: {job.experience}
-        </p>
+    <div className="bg-gray-50 min-h-screen py-12 px-6 relative">
+      <div className="max-w-5xl mx-auto bg-white shadow-2xl rounded-xl p-10 border border-red-100">
+        {/* Header */}
+        <div className="mb-8 border-b pb-4 border-gray-300">
+          <h1 className="text-4xl font-extrabold text-red-900 mb-2">{job.title}</h1>
+          <p className="text-sm text-gray-600">
+            <span className="font-medium">{job.location}</span> | {job.type} | Experience: {job.experience}
+          </p>
+        </div>
 
-        <div className="space-y-4">
-          <div>
-            <h2 className="text-lg font-semibold">Summary</h2>
-            <p className="text-gray-800">{job.summary}</p>
-          </div>
+        {/* Job Content */}
+        <div className="space-y-6 text-gray-800 leading-relaxed">
+          <section>
+            <h2 className="text-xl font-semibold text-red-800 mb-2">Summary</h2>
+            <p>{job.summary}</p>
+          </section>
 
-          <div>
-            <h2 className="text-lg font-semibold">Job Description</h2>
-            <p className="text-gray-800">{job.description}</p>
-          </div>
+          <section>
+            <h2 className="text-xl font-semibold text-red-800 mb-2">Job Description</h2>
+            <pre className="whitespace-pre-wrap text-gray-700">{job.description}</pre>
+          </section>
 
-          <div>
-            <h2 className="text-lg font-semibold">Required Skills</h2>
-            <p className="text-gray-800">{job.skills}</p>
-          </div>
+          <section>
+            <h2 className="text-xl font-semibold text-red-800 mb-2">Required Skills</h2>
+            <pre className="whitespace-pre-wrap text-gray-700">{job.skills}</pre>
+          </section>
 
-          <div>
-            <h2 className="text-lg font-semibold">Job Number</h2>
-            <p className="text-gray-800">{job.jobNumber}</p>
-          </div>
+          <section>
+            <h2 className="text-xl font-semibold text-red-800 mb-2">Job Number</h2>
+            <p>{job.jobNumber}</p>
+          </section>
 
-          <div className="mt-6">
-            <Link
-              to="/apply"
-              className="bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg"
+          <div className="pt-6">
+            <button
+              onClick={() => setShowForm(true)}
+              className="inline-block bg-red-900 hover:bg-red-800 transition px-6 py-3 text-white text-lg rounded-md shadow-md"
             >
               Apply Now
-            </Link>
+            </button>
           </div>
         </div>
       </div>
+
+      {/* Application Form Overlay */}
+      {showForm && (
+        <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-start z-50 pt-16 px-4 overflow-y-auto">
+          <div className="relative w-full max-w-xl">
+            {/* Close Button */}
+            {/* <button
+              className="absolute top-0 right-0 text-white text-3xl font-bold hover:text-red-400 z-50"
+              onClick={() => setShowForm(false)}
+            >
+              ×
+            </button> */}
+
+            {/* Job Application Form */}
+            <JobApplicationForm />
+          </div>
+        </div>
+      )}
     </div>
   );
 }
