@@ -3,12 +3,22 @@ import Button from '../components/ui/Button';
 import { Link } from 'react-router-dom';
 import { Card, CardBody } from '../components/ui/Card';
 import modelImage from '../assets/model.webp';
+import { useEffect } from 'react';
 
 const Home = () => {
+  // Smooth scroll to overview section
+  const handleScroll = (e) => {
+    e.preventDefault();
+    const target = document.getElementById('overview');
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <div className='mt-16'>
       {/* Hero Section */}
-      <section className="relative h-screen flex items-center justify-center ">
+      <section className="relative h-screen flex items-center justify-center">
         <div
           className="absolute inset-0 bg-cover bg-center"
           style={{
@@ -19,25 +29,25 @@ const Home = () => {
         </div>
 
         <div className="relative z-10 container mx-auto px-4 text-center text-white">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 animate-fade-in ">
+          <h1 className="text-3xl md:text-4xl lg:text-6xl font-bold mb-6 animate-fade-in">
             Transforming Analytics.
             <br />
             Empowering Talent.
           </h1>
-          <p className="text-xl md:text-2xl mb-8 max-w-3xl mx-auto">
+          <p className="text-lg md:text-xl mb-8 max-w-3xl mx-auto">
             GenexCorp helps businesses leverage data-driven insights while nurturing the next generation of IT professionals.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               to="/services"
-              className="inline-block min-w-[180px] bg-[#800000] text-white px-6 py-3 rounded-lg text-center text-lg hover:bg-[#660000]"
+              className="inline-block min-w-[180px] bg-[#800000] text-white px-6 py-3 rounded-lg text-center text-base hover:bg-[#660000]"
             >
               Explore Services
             </Link>
 
             <Link
               to="/trainings"
-              className="inline-block min-w-[180px] border border-white text-white px-6 py-3 rounded-lg text-center text-lg hover:bg-white/10 bg-transparent"
+              className="inline-block min-w-[180px] border border-white text-white px-6 py-3 rounded-lg text-center text-base hover:bg-white/10 bg-transparent"
             >
               Join Internship
             </Link>
@@ -47,7 +57,8 @@ const Home = () => {
         <div className="absolute bottom-10 left-0 right-0 flex justify-center">
           <a
             href="#overview"
-            className="text-white animate-bounce"
+            onClick={handleScroll}
+            className="text-white animate-bounce cursor-pointer"
             aria-label="Scroll down"
           >
             <ArrowRight className="h-8 w-8 transform rotate-90" />
@@ -56,13 +67,13 @@ const Home = () => {
       </section>
 
       {/* Overview Section */}
-      <section id="overview" className="py-20 ">
+      <section id="overview" className="py-20">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">
               Why Choose GenexCorp?
             </h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            <p className="text-base text-gray-700 max-w-3xl mx-auto">
               We combine technical expertise with a commitment to developing the next generation of IT professionals.
             </p>
           </div>
@@ -72,6 +83,7 @@ const Home = () => {
               <CardBody>
                 <div className="flex justify-center mb-4">
                   <div className="bg-[#f4e1c1] p-4 rounded-full">
+                    {/* icon */}
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-10 w-10 text-[#800000]"
@@ -88,7 +100,7 @@ const Home = () => {
                     </svg>
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Hire a Consultant</h3>
+                <h3 className="text-lg font-semibold mb-2">Hire a Consultant</h3>
                 <p className="text-gray-700">
                   Everyone at GenexCorp is passionate about how IT can transform your business. That passion drives our unique approach and consistent success.
                 </p>
@@ -115,7 +127,7 @@ const Home = () => {
                     </svg>
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">Build Your Career in Analytics</h3>
+                <h3 className="text-lg font-semibold mb-2">Build Your Career in Analytics</h3>
                 <p className="text-gray-700">
                   Anyone with experience in .NET, Java, databases, or SQL can enroll in our 50-hour online training, which includes practical business case studies.
                 </p>
@@ -142,7 +154,7 @@ const Home = () => {
                     </svg>
                   </div>
                 </div>
-                <h3 className="text-xl font-semibold mb-2">How We Conduct Training</h3>
+                <h3 className="text-lg font-semibold mb-2">How We Conduct Training</h3>
                 <p className="text-gray-700">
                   Our 5-day onsite sessions cover technical and business-oriented topics through case-study-based training for designers and developers.
                 </p>
@@ -156,21 +168,18 @@ const Home = () => {
       <section className="py-20 bg-white">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Offerings</h2>
-            <p className="text-lg text-gray-700 max-w-3xl mx-auto">
+            <h2 className="text-2xl md:text-3xl font-bold mb-4">Our Offerings</h2>
+            <p className="text-base text-gray-700 max-w-3xl mx-auto">
               Explore the services we provide to accelerate your business growth.
             </p>
           </div>
 
-          {/* <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
-            * Service Cards *
-            * You can add cards here *
-          </div> */}
+          {/* Services Grid (optional) */}
 
           <div className="text-center mt-12">
             <Link
               to="/services"
-              className="inline-block px-6 py-3 border border-[#800000] text-[#800000] rounded-lg text-lg hover:bg-[#f4e1c1] transition min-w-[180px]"
+              className="inline-block px-6 py-3 border border-[#800000] text-[#800000] rounded-lg text-base hover:bg-[#f4e1c1] transition min-w-[180px]"
             >
               View All Services
             </Link>
@@ -181,23 +190,23 @@ const Home = () => {
       {/* CTA Section */}
       <section className="py-20 bg-[#800000] text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">
+          <h2 className="text-2xl md:text-3xl font-bold mb-4">
             Ready to Transform Your Business?
           </h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
+          <p className="text-lg mb-8 max-w-3xl mx-auto">
             Partner with GenexCorp to unlock your full potential through innovative technology solutions and access to top IT talent.
           </p>
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link
               to="/support"
-              className="inline-block border border-white text-white hover:bg-white hover:text-[#800000] min-w-[180px] px-6 py-3 rounded-md text-lg text-center"
+              className="inline-block border border-white text-white hover:bg-white hover:text-[#800000] min-w-[180px] px-6 py-3 rounded-md text-base text-center"
             >
               Contact Us
             </Link>
 
             <Link
               to="/jobs"
-              className="inline-block bg-white text-[#800000] border-2 border-white rounded-md hover:bg-[#f4e1c1] min-w-[180px] px-6 py-3 text-lg text-center"
+              className="inline-block bg-white text-[#800000] border-2 border-white rounded-md hover:bg-[#f4e1c1] min-w-[180px] px-6 py-3 text-base text-center"
             >
               View Open Positions
             </Link>
@@ -209,33 +218,3 @@ const Home = () => {
 };
 
 export default Home;
-
-  // {
-  //   id: 'it-consulting',
-  //   title: 'IT Consulting',
-  //   icon: <BarChart className="h-10 w-10 text-blue-500" />,
-  //   description:
-  //     'Our IT consulting services provide strategic guidance to help you navigate the complex technology landscape. We work closely with your team to understand your business objectives and develop a technology roadmap that aligns with your goals, ensuring optimal ROI on your IT investments.',
-  //   benefits: [
-  //     'DevOps Development',
-  //     'Splunk Development',
-  //     'FullStack Development',
-  //     'Web Development',
-  //     'DevOps Development',
-  //     'ServiceNow Development',
-  //     'ChatBot Development',
-  //     'AWS Development',
-  //   ],
-  //   caseStudies: [
-  //     {
-  //       title: 'Digital Transformation for Financial Services',
-  //       description:
-  //         'Guided a mid-sized financial institution through a comprehensive digital transformation, resulting in a 45% increase in customer engagement and 35% reduction in processing times.',
-  //     },
-  //     {
-  //       title: 'IT Infrastructure Modernization',
-  //       description:
-  //         'Helped a manufacturing company modernize their legacy IT systems, reducing maintenance costs by 50% and improving system reliability by 75%.',
-  //     },
-  //   ],
-  // },

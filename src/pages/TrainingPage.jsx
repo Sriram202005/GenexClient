@@ -1,7 +1,21 @@
 import { useState } from "react";
-import { Layers, Settings, Code2, Globe, Bot, Cloud, Users } from "lucide-react";
-import Button from '@/components/ui/Button';
-import { FunctionalConsulting,TechnicalConsulting } from '../components/Consulting';
+import {
+  Layers,
+  Settings,
+  Code2,
+  Globe,
+  Bot,
+  Cloud,
+  Users,
+} from "lucide-react";
+import Button from "@/components/ui/Button";
+import {
+  FunctionalConsulting,
+  TechnicalConsulting,
+} from "../components/Consulting";
+
+import RealTimeInternshipPage from "./RealTimeInternshipPage.jsx";
+import CorporateTrainingPage from "./CorporateTrainingPage.jsx";
 
 const programs = [
   {
@@ -13,7 +27,8 @@ const programs = [
   {
     icon: "🐳",
     title: "DevOps Development",
-    description: "Jenkins, Docker, Kubernetes, GitHub / GitActions / GitLab, Ansible",
+    description:
+      "Jenkins, Docker, Kubernetes, GitHub / GitActions / GitLab, Ansible",
   },
   {
     icon: "💻",
@@ -33,7 +48,8 @@ const programs = [
   {
     icon: "🤖",
     title: "ChatBot Development",
-    description: "Azure Bot, WebApp ChatBot, Channels Integration, LUIS, QnA",
+    description:
+      "Azure Bot, WebApp ChatBot, Channels Integration, LUIS, QnA",
   },
   {
     icon: "☁️",
@@ -72,29 +88,32 @@ const TrainingsPage = () => {
       {/* Hero Section */}
       <section className="bg-red-900 text-white text-center py-16 px-4">
         <div className="container mx-auto px-4 text-center">
-          <h1 className="text-4xl font-bold mb-4">Jumpstart Your IT Career</h1>
-          <p className="text-lg max-w-3xl mx-auto">
-            Our comprehensive training and internship programs are designed to bridge the gap
-            between academic learning and industry requirements. Gain hands-on experience with
-            cutting-edge technologies while being mentored by industry experts.
+          <h1 className="text-3xl font-bold mb-4">Jumpstart Your IT Career</h1>
+          <p className="text-base max-w-3xl mx-auto">
+            Our comprehensive training and internship programs are designed to
+            bridge the gap between academic learning and industry requirements.
+            Gain hands‑on experience with cutting‑edge technologies while being
+            mentored by industry experts.
           </p>
-          <p className="mt-6 text-xl font-semibold">
-            93% of our interns successfully transition into full-time IT roles within 3 months of
-            program completion.
+          <p className="mt-6 text-lg font-semibold">
+            93% of our interns successfully transition into full‑time IT roles
+            within 3 months of program completion.
           </p>
         </div>
       </section>
 
       {/* Program Highlights */}
-      <section className="py-16 ">
+      <section className="py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl  mb-6  font-semibold text-red-900">Program Highlights</h2>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-gray-700 text-base">
+          <h2 className="text-xl mb-6 font-semibold text-red-900">
+            Program Highlights
+          </h2>
+          <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 text-gray-700 text-sm">
             <li>✅ 8–12 week structured training programs</li>
-            <li>✅ Hands-on projects using industry-standard tools</li>
+            <li>✅ Hands‑on projects using industry‑standard tools</li>
             <li>✅ Mentorship from experienced professionals</li>
             <li>✅ Career guidance and job placement assistance</li>
-            <li>✅ Industry-recognized certification preparation</li>
+            <li>✅ Industry‑recognized certification preparation</li>
           </ul>
         </div>
       </section>
@@ -102,16 +121,20 @@ const TrainingsPage = () => {
       {/* Available Programs */}
       <section className="py-16 bg-white">
         <div className="container mx-auto px-4">
-          <h2 className="text-2xl font-semibold mb-6 text-red-900">Available Programs</h2>
+          <h2 className="text-xl font-semibold mb-6 text-red-900">
+            Available Programs
+          </h2>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
             {(showAll ? programs : programs.slice(0, 3)).map((program, index) => (
-              <div 
+              <div
                 key={index}
                 className="hover:shadow-lg transition duration-300 bg-amber-50 border border-red-200 rounded-xl p-5 shadow"
               >
-                <div className="flex items-center space-x-3 mb-3 ">
+                <div className="flex items-center space-x-3 mb-3">
                   <div className="text-3xl">{program.icon}</div>
-                  <h3 className="font-bold text-lg mb-2 text-red-800">{program.title}</h3>
+                  <h3 className="font-bold text-base mb-2 text-red-800">
+                    {program.title}
+                  </h3>
                 </div>
                 <p className="text-sm text-gray-600">{program.description}</p>
               </div>
@@ -130,13 +153,15 @@ const TrainingsPage = () => {
       </section>
 
       {/* Success Stories */}
-      <section className="py-20 ">
+      <section className="py-20">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-semibold text-center text-red-800">Success Stories</h2>
+          <h2 className="text-3xl font-semibold text-center text-red-800">
+            Success Stories
+          </h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {testimonials.map((story, idx) => (
               <div key={idx} className="bg-amber-50 p-6 rounded-xl shadow">
-                <h3 className="font-bold text-lg">{story.name}</h3>
+                <h3 className="font-bold text-base">{story.name}</h3>
                 <p className="text-sm text-gray-600 mb-2">{story.title}</p>
                 <p className="text-gray-700 italic">"{story.quote}"</p>
               </div>
@@ -146,27 +171,39 @@ const TrainingsPage = () => {
       </section>
 
       {/* CTA Section */}
-      <section className="text-center space-y-4  py-10 rounded-lg">
-        <h2 className="text-2xl font-semibold text-red-900">Ready to Get Started?</h2>
-        <p className="text-gray-700">
-          Whether you're looking to start a career in IT, gain real-world experience, or upskill your team, we have a program for you.
+      <section className="text-center space-y-4 py-10 rounded-lg">
+        <h2 className="text-xl font-semibold text-red-900">
+          Ready to Get Started?
+        </h2>
+        <p className="text-gray-700 text-sm">
+          Whether you're looking to start a career in IT, gain real‑world
+          experience, or upskill your team, we have a program for you.
         </p>
         <div className="flex justify-center flex-col sm:flex-row gap-6 mt-4">
-          <Button className="bg-red-900 text-white px-6 py-3 rounded-lg hover:bg-red-800">
+          <a
+            href="/real-time-internship"
+            className="bg-red-900 text-white px-6 py-3 rounded-lg text-center hover:bg-red-800 transition"
+          >
             Apply for Internship
-          </Button>
-          <Button variant="outline" className="border-red-900 text-red-900 hover:bg-red-200">
+          </a>
+          <a
+            href="/corporate-training"
+            className="border border-red-900 text-red-900 px-6 py-3 rounded-lg text-center hover:bg-red-200 transition"
+          >
             Request Corporate Training
-          </Button>
+          </a>
         </div>
       </section>
-      <TechnicalConsulting/>
-      <FunctionalConsulting/>      
+
+      {/* Consulting Sections */}
+      <TechnicalConsulting />
+      <FunctionalConsulting />
     </div>
   );
 };
 
 export default TrainingsPage;
+
 
 // import React from 'react';
 

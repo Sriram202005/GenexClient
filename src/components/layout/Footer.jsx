@@ -8,7 +8,7 @@ import {
   Instagram,
 } from 'lucide-react';
 import { Link } from 'react-router-dom';
-import logo from '../../assets/logo.jpg'; // Add your logo image path here
+import logo from '../../assets/logo.jpg';
 
 const Footer = () => {
   return (
@@ -59,11 +59,11 @@ const Footer = () => {
           <div>
             <h3 className="text-xl font-bold mb-4">Services</h3>
             <ul className="space-y-2">
-              <li><Link to="/services?type=product-development" className="text-gray-400 hover:text-white transition-colors">Product Development</Link></li>
-              <li><Link to="/services?type=it-consulting" className="text-gray-400 hover:text-white transition-colors">IT Consulting</Link></li>
-              <li><Link to="/services?type=it-resourcing" className="text-gray-400 hover:text-white transition-colors">IT Resourcing</Link></li>
-              <li><Link to="/trainings?type=internships" className="text-gray-400 hover:text-white transition-colors">Internships</Link></li>
-              <li><Link to="/trainings?type=corporate" className="text-gray-400 hover:text-white transition-colors">Corporate Training</Link></li>
+              <li><Link to="/product-development" className="text-gray-400 hover:text-white transition-colors">Product Development</Link></li>
+              <li><Link to="/it-consulting" className="text-gray-400 hover:text-white transition-colors">IT Consulting</Link></li>
+              <li><Link to="/it-resourcing" className="text-gray-400 hover:text-white transition-colors">IT Resourcing</Link></li>
+              <li><Link to="/real-time-internship" className="text-gray-400 hover:text-white transition-colors">Internships</Link></li>
+              <li><Link to="/corporate-training" className="text-gray-400 hover:text-white transition-colors">Corporate Training</Link></li>
             </ul>
           </div>
 
@@ -90,9 +90,14 @@ const Footer = () => {
           </div>
         </div>
 
-        {/* Copyright */}
-        <div className="border-t border-gray-800 mt-12 pt-8 text-center text-gray-400">
+        {/* Bottom Links and Copyright */}
+        <div className="mt-12 border-t border-gray-800 pt-6 flex flex-col lg:flex-row justify-between items-center text-sm text-gray-400 space-y-4 lg:space-y-0">
           <p>© {new Date().getFullYear()} Genexcorp. All rights reserved.</p>
+          <div className="flex space-x-4">
+            <Link to="/terms" className="hover:text-white transition-colors">Terms & Conditions</Link>
+            <Link to="/privacy-policy" className="hover:text-white transition-colors">Privacy Policy</Link>
+            <Link to="/sitemap" className="hover:text-white transition-colors">Sitemap</Link>
+          </div>
         </div>
       </div>
     </footer>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
-import JobApplicationForm from '../components/JobApplicationForm'; // Make sure this path is correct
+import JobApplicationForm from '../components/JobApplicationForm';
 
 const jobsData = [
   {
@@ -83,46 +83,46 @@ export default function JobDetailPage() {
   const [showForm, setShowForm] = useState(false);
 
   if (!job) {
-    return <div className="p-10 text-red-700 font-semibold">Job not found.</div>;
+    return <div className="p-10 text-red-700 font-poppins">Job not found.</div>;
   }
 
   return (
-    <div className="bg-gray-50 min-h-screen py-12 px-6 relative">
+    <div className="bg-gray-50 min-h-screen py-12 px-6 font-poppins">
       <div className="max-w-5xl mx-auto bg-white shadow-2xl rounded-xl p-10 border border-red-100">
         {/* Header */}
         <div className="mb-8 border-b pb-4 border-gray-300">
-          <h1 className="text-4xl font-extrabold text-red-900 mb-2">{job.title}</h1>
+          <h1 className="text-3xl font-bold text-red-900 mb-2">{job.title}</h1>
           <p className="text-sm text-gray-600">
             <span className="font-medium">{job.location}</span> | {job.type} | Experience: {job.experience}
           </p>
         </div>
 
         {/* Job Content */}
-        <div className="space-y-6 text-gray-800 leading-relaxed">
+        <div className="space-y-6 text-gray-800 text-sm leading-relaxed">
           <section>
-            <h2 className="text-xl font-semibold text-red-800 mb-2">Summary</h2>
+            <h2 className="text-lg font-semibold text-red-800 mb-2">Summary</h2>
             <p>{job.summary}</p>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-red-800 mb-2">Job Description</h2>
-            <pre className="whitespace-pre-wrap text-gray-700">{job.description}</pre>
+            <h2 className="text-lg font-semibold text-red-800 mb-2">Job Description</h2>
+            <div className="whitespace-pre-wrap">{job.description}</div>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-red-800 mb-2">Required Skills</h2>
-            <pre className="whitespace-pre-wrap text-gray-700">{job.skills}</pre>
+            <h2 className="text-lg font-semibold text-red-800 mb-2">Required Skills</h2>
+            <div className="whitespace-pre-wrap">{job.skills}</div>
           </section>
 
           <section>
-            <h2 className="text-xl font-semibold text-red-800 mb-2">Job Number</h2>
+            <h2 className="text-lg font-semibold text-red-800 mb-2">Job Number</h2>
             <p>{job.jobNumber}</p>
           </section>
 
           <div className="pt-6">
             <button
               onClick={() => setShowForm(true)}
-              className="inline-block bg-red-900 hover:bg-red-800 transition px-6 py-3 text-white text-lg rounded-md shadow-md"
+              className="bg-red-900 hover:bg-red-800 transition px-6 py-3 text-white text-base rounded-md shadow-md"
             >
               Apply Now
             </button>
@@ -134,15 +134,6 @@ export default function JobDetailPage() {
       {showForm && (
         <div className="fixed inset-0 bg-black/70 backdrop-blur-sm flex justify-center items-start z-50 pt-16 px-4 overflow-y-auto">
           <div className="relative w-full max-w-xl">
-            {/* Close Button */}
-            {/* <button
-              className="absolute top-0 right-0 text-white text-3xl font-bold hover:text-red-400 z-50"
-              onClick={() => setShowForm(false)}
-            >
-              ×
-            </button> */}
-
-            {/* Job Application Form */}
             <JobApplicationForm />
           </div>
         </div>
