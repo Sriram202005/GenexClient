@@ -70,7 +70,7 @@ const JobApplicationForm = () => {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/apply", {
+const response = await fetch("https://newgen-hyg5.onrender.com/api/apply", {
         method: "POST",
         body: formData,
       });
